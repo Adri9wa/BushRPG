@@ -1,7 +1,7 @@
 #pragma once
-//_GAME_HPP
-#ifndef _GAME_HPP
-#define _GAME_HPP
+//_GAME_HPP_
+#ifndef _GAME_HPP_
+#define _GAME_HPP_
 
 
 class Game final
@@ -19,6 +19,7 @@ public:
     }
 
     void GameLoop();
+    void MainMenu();
     void QuitGame();
 
 private:
@@ -27,11 +28,12 @@ private:
         : quit(false)
     { }
 
+private:
     bool quit;
-
+    int choice;
 };
 
 
 
 #endif
-//_GAME_HPP
+//_GAME_HPP_
