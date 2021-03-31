@@ -6,16 +6,16 @@
 
 
 #include "Bush/Game.hpp"
-//#include "Bush/Game.cpp"
+#include "Bush/Stats.hpp"
 
 //main entry
 int main(void) 
 {
 
+    const auto barbarianStats = Stats::Shared().CreateStatList(HeroType::Barbarian);
+    
 
 
     Game::Shared().GameLoop();
-   // Game::Shared().GameLoop();
-
     return 0;
 }

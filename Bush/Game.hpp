@@ -21,6 +21,7 @@ public:
     void GameLoop();
     void MainMenu();
     void QuitGame();
+    void ViewStats();
 
 private:
 //vars

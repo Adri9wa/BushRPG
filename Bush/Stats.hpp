@@ -3,7 +3,27 @@
 #ifndef _STATS_HPP_
 #define _STATS_HPP_
 
-class Stats final
+#include "Component.hpp"
+
+struct StatList
+{
+    int Strength;
+    int Intelligence;
+    int Health;
+    int Attack;
+    int Stamina;
+    int AlcoholResist;
+    int Dexterity;
+};
+
+enum HeroType
+{
+    Barbarian, Sorcerer, Drunkster, //Main Hero
+    Goblin //Enemies
+};
+
+
+class Stats : public Component
 {
 public:
     static Stats& Shared()
@@ -12,11 +32,23 @@ public:
         return instance;
     }
 
+    void Initialize() override;
+    void Update() override;
+    void Remove() override;
 
+StatList CreateStatList(HeroType type);
+
+Stats() = default;
+Stats(const Stats&) = default;
+Stats(Stats&&) = default;
 
 private:
-
+    StatList GetBarbarianStats();
+    StatList GetSorcererStats();
+    StatList GetDrunksterStats();
+    StatList GetGoblinStats();
     
+    StatList heroStat;
 
 };
 
